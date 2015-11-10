@@ -1,10 +1,8 @@
 class Series
 
-
   def initialize(slice_string)
     @slice_string = slice_string
   end
-
 
   def slices(length)
     raise ArgumentError.new if length > @slice_string.length
@@ -12,11 +10,10 @@ class Series
     index = 0
       until index == @slice_string.length do
         string = @slice_string[index, length]
-        fixnum = string.chars.map(&:to_i)
-        outer_array << fixnum if fixnum.length == length
+        fixnum_array = string.chars.map(&:to_i)
+        outer_array << fixnum_array if fixnum_array.length == length
         index += 1
       end
     outer_array
   end
-
 end
